@@ -28,6 +28,24 @@ void Bark() {
     cout << "Гав";
 }
 
+/*
+void append_el(int*& arr, int& size)
+{
+	int append;
+	cout << "\nВведите число, которое добавить. " << endl;
+	cin >> append;
+	int* new_arr = new int[size + 1];
+	for (int i = 0; i < size; i++)
+	{
+		*(new_arr + i) = *(arr + i);
+	}
+	new_arr[size++] = append;
+	delete[]arr;
+	arr = new_arr;
+
+}
+*/
+
 void Cinput(Dogs* dog, int chose) {
     cout << "Dog: " << chose << "\n";
     chose -= 1;
@@ -37,7 +55,7 @@ void Cinput(Dogs* dog, int chose) {
     cout << endl;
 }
 
-void Doggy(Dogs* dog, int length) {
+void Doggy(Dogs* dog, int &length) {
     int chose; int c = 0;
     do {
 
@@ -65,6 +83,9 @@ void Doggy(Dogs* dog, int length) {
                 int many; many = 0; cin >> many;
                 length += many;
                 break;
+            case 6:
+
+                break;
             default:
                 cout << "Выход :)"; Sleep(1000);
                 chose = 5;
@@ -79,11 +100,11 @@ int main()
     setlocale(0, "");
     srand(time(NULL));
     //system("color B5");
-
+    int length;
     cout << "Сколько собак будет?\n";
-    int a = 0; cin >> a;
+    int a = 0; cin >> length;
 
-    Dogs* dogs = new Dogs[100];
+    Dogs* dogs = new Dogs[length];
 
-    Doggy(dogs, a);
+    Doggy(dogs, length);
 }
