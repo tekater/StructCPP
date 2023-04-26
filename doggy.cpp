@@ -9,7 +9,7 @@
 using namespace std;
 
 struct Dogs {
-    char Name[20]={" "};
+    char Name[20] = { " " };
     int Class = 0;
     char stepName[20] = { " " };
 };
@@ -29,47 +29,46 @@ void Bark() {
 }
 
 void Cinput(Dogs* dog, int chose) {
-        cout << "Dog: " << chose << "\n";
-        chose -= 1;
-        cout << "Name: "; cin >> dog[chose].Name; cout << endl;
-        cout << "Class(int): "; cin >> dog[chose].Class; cout << endl;
-        cout << "StepName: "; cin >> dog[chose].stepName; cout << endl;
-        cout << endl;
+    cout << "Dog: " << chose << "\n";
+    chose -= 1;
+    cout << "Name: "; cin >> dog[chose].Name; cout << endl;
+    cout << "Class(int): "; cin >> dog[chose].Class; cout << endl;
+    cout << "StepName: "; cin >> dog[chose].stepName; cout << endl;
+    cout << endl;
 }
 
-void Doggy(Dogs* dog,int length) {
+void Doggy(Dogs* dog, int length) {
     int chose; int c = 0;
     do {
-    system("cls");
-    cout << "\n1 - Заполнение объектов.\n2 - Вывод\n3 - Подать голос\n4 - Пополнить список Собак\n5 - Выход\n";
-    cout << "\nВыберите действие: "; cin >> chose;
-    switch (chose) {
-    case 1:
-        cout << "Информацию о какой собаке вы хотите заполнить ? 1 - " << length << "\n";
-        cin >> c;
-        Cinput(dog, c);
-        break;
-    case 2:
-        Show(dog, length);
-        Sleep(2000);
-        break;
-    case 3:
-        Bark();
-        Sleep(1000);
-        break;
-    case 4:
-        cout << "\nСколько прибыло собак ?\n";
-        int many; many = 0;
-        cin >> many;
-        length += many;
-        break;
-    default:
-        cout << "Выход :)";
-        Sleep(1000);
-        break;
-    }
+
+        system("cls");
+        cout << "\n1 - Заполнение объектов.\n2 - Вывод\n3 - Подать голос\n4 - Пополнить список Собак\n5 - Выход\n";
+        cout << "\nВыберите действие: "; cin >> chose;
+
+        switch (chose) {
+        case 1:
+            cout << "Информацию о какой собаке вы хотите заполнить ? 1 - " << length << "\n";
+            cin >> c;
+            Cinput(dog, c);
+            break;
+        case 2:
+            Show(dog, length); Sleep(2000);
+            break;
+        case 3:
+            Bark(); Sleep(1000);
+            break;
+        case 4:
+            cout << "\nСколько прибыло собак ?\n";
+            int many; many = 0; cin >> many;
+            length += many;
+            break;
+        default:
+            cout << "Выход :)"; Sleep(1000);
+            break;
+        }
 
     } while (chose != 5);
+
 }
 
 int main()
@@ -77,9 +76,11 @@ int main()
     setlocale(0, "");
     srand(time(NULL));
     //system("color B5");
+
     cout << "Сколько собак будет?\n";
     int a = 0; cin >> a;
-    Dogs* dogs = new Dogs[100];
-    Doggy(dogs,a);
 
+    Dogs* dogs = new Dogs[100];
+
+    Doggy(dogs, a);
 }
