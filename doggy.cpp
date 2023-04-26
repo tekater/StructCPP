@@ -44,29 +44,32 @@ void Doggy(Dogs* dog, int length) {
         system("cls");
         cout << "\n1 - Заполнение объектов.\n2 - Вывод\n3 - Подать голос\n4 - Пополнить список Собак\n5 - Выход\n";
         cout << "\nВыберите действие: "; cin >> chose;
-
-        switch (chose) {
-        case 1:
-            cout << "Информацию о какой собаке вы хотите заполнить ? 1 - " << length << "\n";
-            cin >> c;
-            Cinput(dog, c);
-            break;
-        case 2:
-            Show(dog, length); system("pause");
-            break;
-        case 3:
-            Bark(); Sleep(1000);
-            break;
-        case 4:
-            cout << "\nСколько прибыло собак ?\n";
-            int many; many = 0; cin >> many;
-            length += many;
-            break;
-        default:
-            cout << "Выход :)"; Sleep(1000);
-            break;
+        if (chose >= 0) {
+        }else {
+            chose = 5;
         }
-
+            switch (chose) {
+            case 1:
+                cout << "Информацию о какой собаке вы хотите заполнить ? 1 - " << length << "\n";
+                cin >> c;
+                Cinput(dog, c);
+                break;
+            case 2:
+                Show(dog, length); system("pause");
+                break;
+            case 3:
+                Bark(); Sleep(1000);
+                break;
+            case 4:
+                cout << "\nСколько прибыло собак ?\n";
+                int many; many = 0; cin >> many;
+                length += many;
+                break;
+            default:
+                cout << "Выход :)"; Sleep(1000);
+                chose = 5;
+                break;
+            }
     } while (chose != 5);
 
 }
