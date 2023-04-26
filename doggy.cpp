@@ -83,9 +83,6 @@ void Doggy(Dogs* dog, int &length) {
                 int many; many = 0; cin >> many;
                 length += many;
                 break;
-            case 6:
-
-                break;
             default:
                 cout << "Выход :)"; Sleep(1000);
                 chose = 5;
