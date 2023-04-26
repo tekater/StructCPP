@@ -52,7 +52,7 @@ void Doggy(Dogs* dog, int length) {
             Cinput(dog, c);
             break;
         case 2:
-            Show(dog, length); Sleep(2000);
+            Show(dog, length); system("pause");
             break;
         case 3:
             Bark(); Sleep(1000);
